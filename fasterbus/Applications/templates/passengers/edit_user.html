@@ -1,0 +1,143 @@
+{% extends 'layout.html' %} {% block custom_styles %}
+{% endblock %}{% block title %}Edit Users{% endblock %} {% block content %}
+<!-- Tickets-->
+<section class="page-section" id="services">
+  <div class="container px-4 px-lg-5">
+    {% comment %}
+    <h2 class="text-center mt-0">Usuario {{user[0]}}</h2>
+    {% endcomment %}
+    <hr class="divider" />
+    <div class="row gx-4 gx-lg-5">
+      <div class="form-body">
+        <div class="row">
+          <div class="form-holder mx-auto">
+            <div class="form-content">
+              <div class="form-items">
+                <h3>Editar:</h3>
+                <p>Completa los siguientes datos.</p>
+                {% comment %} <form
+                  action="/users/edit/{{user[0]}}"
+                  method="POST"
+                  class="requires-validation"
+                  novalidate
+                >
+                  <div class="col-md-12 py-2">
+                    <label>Name</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="name"
+                      placeholder="Nombre completo"
+                      value="{{user[1]}}"
+                      required
+                    />
+                    <div class="valid-feedback">
+                      El campo de nombre es válido!
+                    </div>
+                    <div class="invalid-feedback">
+                      El campo de nombre no puede estar en blanco!
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 py-2">
+                    <label>Document</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="document"
+                      placeholder="Cédula"
+                      value="{{user[2]}}"
+                      required
+                    />
+                    <div class="valid-feedback">
+                      El campo de documento es válido!
+                    </div>
+                    <div class="invalid-feedback">
+                      El campo de documento no puede estar en blanco!
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 py-2">
+                    <label>Email</label>
+                    <input
+                      class="form-control"
+                      type="email"
+                      name="email"
+                      placeholder="Correo electrónico"
+                      value="{{user[3]}}"
+                      required
+                    />
+                    <div class="valid-feedback">
+                      El campo de correo es válido!
+                    </div>
+                    <div class="invalid-feedback">
+                      El campo de correo no puede estar en blanco!
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 py-2">
+                    <label>Phone</label>
+                    <input
+                      class="form-control"
+                      type="tel"
+                      name="phone"
+                      placeholder="Teléfono"
+                      value="{{user[4]}}"
+                      required
+                    />
+                    <div class="valid-feedback">
+                      El campo de teléfono es válido!
+                    </div>
+                    <div class="invalid-feedback">
+                      El campo de teléfono no puede estar en blanco!
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 py-2">
+                    <label>Password</label>
+                    <input
+                      class="form-control"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      value="{{user[5]}}"
+                      required
+                    />
+                    <div class="valid-feedback">Password field is valid!</div>
+                    <div class="invalid-feedback">
+                      Password field cannot be blank!
+                    </div>
+                  </div>
+                  <br />
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="invalidCheck"
+                      required
+                    />
+                    <label class="form-check-label"
+                      >Confirmo que todos los datos son corrrectos</label
+                    >
+                    <div class="invalid-feedback">
+                      Por favor confirme que todos los datos ingresados sean
+                      corrrectos!
+                    </div>
+                  </div>
+
+                  <div class="form-button mt-3">
+                    <button id="submit" type="submit" class="btn btn-primary">
+                      Registrar
+                    </button>
+                  </div>
+                </form> {% endcomment %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
