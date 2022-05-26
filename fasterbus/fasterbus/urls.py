@@ -18,6 +18,7 @@ from django.urls import path, include
 from Applications.main.views import title, index, param
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('title', title, name="title"),
     path('param/<int:num>/<str:name>', param, name="param"),
@@ -27,6 +28,8 @@ urlpatterns = [
     #Buses
     path('', include('Applications.buses.urls'), name="buses_urls"),
     #Routes
-    path('', include('Applications.routes.urls'), name="routes_urls")
+    path('', include('Applications.routes.urls'), name="routes_urls"),
+    #Tickets
+    path('', include('Applications.tickets.urls'), name="tickets_urls")
     
 ]

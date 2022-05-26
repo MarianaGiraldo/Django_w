@@ -1,7 +1,8 @@
 {% extends 'layout.html' %} {% block custom_styles %}
-<link href="../static/css/nav.css" rel="stylesheet" />
-<link href="../static/css/styles.css" rel="stylesheet" />
-{% endblock %} {% block title %}Usuarios{% endblock %} {% block content %}
+{% load static %}
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}" />
+{% endblock %} {% block title %}Tiquetes{% endblock %} {% block content %}
 <!-- Tickets-->
 <section class="page-section" id="services">
   <div class="container px-4 px-lg-5">
@@ -22,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          {% if tickets != none %} {% for ticket in tickets %}
+          {% comment %} {% if tickets != none %} {% for ticket in tickets %}
           <tr>
             <td>{{ticket[0]}}</td>
             <td>{{ticket[1]}} -> {{ticket[2]}}</td>
@@ -50,7 +51,7 @@
               </div>
             </td>
           </tr>
-          {% endfor%} {% endif%}
+          {% endfor%} {% endif%} {% endcomment %}
         </tbody>
       </table>
       <a class="btn btn-primary mx-1 rounded w-auto mx-auto" href="/buy-tickets"

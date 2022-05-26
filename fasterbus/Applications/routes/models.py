@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class Route(models.Model):
+    id = models.AutoField(primary_key = True)
+    origin = models.CharField( max_length = 255 )
+    destination = models.CharField( max_length = 255 )

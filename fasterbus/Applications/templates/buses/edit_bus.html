@@ -1,4 +1,8 @@
-{% extends 'layout.html' %} {% block title %}Insert Buses{% endblock %} 
+{% extends 'layout.html' %} {% block custom_styles %}
+{% load static %}
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}" />
+{% endblock %} {% block title %}Edit Bus{% endblock %} 
 {% block content %}
     <!-- Buses-->
     <section class="page-section" id="services">

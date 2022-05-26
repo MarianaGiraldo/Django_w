@@ -1,9 +1,8 @@
 {% extends 'layout.html' %} {% block custom_styles %}
-<link href="../../static/css/nav.css" rel="stylesheet" />
-<link href="../../static/css/styles.css" rel="stylesheet" />
+{% load static %}
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="../../static/img/favicon.ico" />
-{% endblock %} {% block title %}Insert Buses{% endblock %} {% block content %}
+<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}" />
+{% endblock %} {% block title %}Form Buses{% endblock %} {% block content %}
 <!-- Buses-->
 <section class="page-section" id="services">
   <div class="container px-4 px-lg-5">
@@ -18,21 +17,24 @@
                 <h3>Bus:</h3>
                 <p>Completa los siguientes datos.</p>
                 <form
-                  action="/insert-bus"
                   method="POST"
                   class="requires-validation"
                   novalidate
                 >
+                {% csrf_token %}
+
+                {% comment %} {{ form.as_p }} {% endcomment %}
                   <div class="col-md-12 py-2">
                     <label>Placa</label>
-                    <input
+                    {% comment %} <input
                       class="form-control"
                       type="text"
                       name="plate"
+                      id="id_plate"
                       placeholder="Placa"
-                      value=""
                       required
-                    />
+                    /> {% endcomment %}
+                    {{ form.plate }}
                     <div class="valid-feedback">
                       El campo de placa es válido!
                     </div>
@@ -43,14 +45,15 @@
 
                   <div class="col-md-12 py-2">
                     <label>Tipo</label>
-                    <input
+                    {% comment %} <input
                       class="form-control"
                       type="text"
                       name="type"
+                      id="id_type"
                       placeholder="Tipo"
-                      value=""
                       required
-                    />
+                    /> {% endcomment %}
+                    {{ form.type }}
                     <div class="valid-feedback">
                       El campo de tipo es válido!
                     </div>
@@ -65,8 +68,8 @@
                       class="form-control"
                       type="number"
                       name="capacity"
+                      id="id_capacity"
                       placeholder="Capacidad"
-                      value=""
                       required
                     />
                     <div class="valid-feedback">
@@ -83,8 +86,8 @@
                       class="form-control"
                       type="text"
                       name="company"
+                      id="id_company"
                       placeholder="Empresa"
-                      value=""
                       required
                     />
                     <div class="valid-feedback">
@@ -104,13 +107,13 @@
                       required
                     />
                     <label class="form-check-label"
-                      >Confirmo que todos los datos son corrrectos</label
+                      >Confirmo que todos los datos son correctos</label
                     >
                     <div class="invalid-feedback">
                       Por favor confirme que todos los datos ingresados sean
                       corrrectos!
                     </div>
-                  </div>
+                  </div> 
 
                   <div class="form-button mt-3">
                     <button id="submit" type="submit" class="btn btn-primary">

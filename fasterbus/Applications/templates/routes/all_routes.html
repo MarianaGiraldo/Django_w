@@ -1,6 +1,7 @@
 {% extends 'layout.html' %} {% block custom_styles %}
-<link href="../static/css/nav.css" rel="stylesheet" />
-<link href="../static/css/styles.css" rel="stylesheet" />
+{% load static %}
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}" />
 {% endblock %} {% block title %}Rutas{% endblock %} {% block content %}
 <!-- Routes-->
 <section class="page-section" id="services">
@@ -17,13 +18,13 @@
           </tr>
         </thead>
         <tbody>
-          {% comment %} {% if routes != none %} {% for route in routes %}
+          {% if routes != none %} {% for route in routes %}
           <tr>
-            <td>{{route[0]}}</td>
-            <td>{{route[1]}}</td>
-            <td>{{route[2]}}</td>
+            <td>{{route.id}}</td>
+            <td>{{route.origin}}</td>
+            <td>{{route.destination}}</td>
           </tr>
-          {% endfor%} {% endif%} {% endcomment %}
+          {% endfor%} {% endif%} 
         </tbody>
       </table>
     </div>

@@ -1,8 +1,7 @@
-{% extends 'layout.html' %}{% block custom_styles %}
-<link href="../../static/css/nav.css" rel="stylesheet" />
-<link href="../../static/css/styles.css" rel="stylesheet" />
+{% extends 'layout.html' %} {% block custom_styles %}
+{% load static %}
 <!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="../../static/img/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}" />
 {% endblock %} {% block title %}Buy your tickets{% endblock %} {% block content
 %}
 <!-- Form-->

@@ -1,4 +1,8 @@
-{% extends 'layout.html' %} {% block title %}Buses{% endblock %} {% block content %}
+{% extends 'layout.html' %} {% block custom_styles %}
+{% load static %}
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}" />
+{% endblock %} {% block title %}Buses{% endblock %} {% block content %}
 <!-- Buses-->
 <section class="page-section" id="services">
   <div class="container px-4 px-lg-5">
@@ -17,29 +21,29 @@
           </tr>
         </thead>
         <tbody>
-          {% comment %} {% if buses != none %} {% for bus in buses %}
+          {% if buses != none %} {% for bus in buses %}
           <tr>
-            <td>{{bus[0]}}</td>
-            <td>{{bus[1]}}</td>
-            <td>{{bus[2]}}</td>
-            <td>{{bus[3]}}</td>
-            <td>{{bus[4]}}</td>
+            <td>{{bus.id}}</td>
+            <td>{{bus.plate}}</td>
+            <td>{{bus.type}}</td>
+            <td>{{bus.capacity}}</td>
+            <td>{{bus.company}}</td>
             <td>
               <div class="row p-0">
                 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
-                <a class="btn btn-success col mx-1" href="/buses/edit/{{bus[0]}}"
+                <a class="btn btn-success col mx-1" href="/buses/edit/{{bus.id}}"
                   ><span
                     class="iconify fs-20"
                     data-icon="clarity:pencil-solid"
                   ></span
                 ></a>
-                <a class="btn btn-danger col mx-1" href="/buses/delete/{{bus[0]}}"
+                <a class="btn btn-danger col mx-1" href="/buses/delete/{{bus.id}}"
                   ><span class="iconify fs-20" data-icon="bi:trash-fill"></span
                 ></a>
               </div>
             </td>
           </tr>
-          {% endfor%} {% endif%} {% endcomment %}
+          {% endfor%} {% endif%}
         </tbody>
       </table>
       <a class="btn btn-primary mx-1 rounded w-auto mx-auto" href="/insert-bus"
