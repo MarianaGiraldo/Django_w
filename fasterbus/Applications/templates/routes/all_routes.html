@@ -15,6 +15,7 @@
             <th>ID</th>
             <th>Origen</th>
             <th>Destino</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -23,10 +24,27 @@
             <td>{{route.id}}</td>
             <td>{{route.origin}}</td>
             <td>{{route.destination}}</td>
+            <td style="width: 15%" >
+              <div class="row p-0">
+                <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+                <a class="btn btn-success col mx-1" href="/routes/edit/{{route.id}}"
+                  ><span
+                    class="iconify fs-20"
+                    data-icon="clarity:pencil-solid"
+                  ></span
+                ></a>
+                <a class="btn btn-danger col mx-1" href="/routes/delete/{{route.id}}"
+                  ><span class="iconify fs-20" data-icon="bi:trash-fill"></span
+                ></a>
+              </div>
+            </td>
           </tr>
           {% endfor%} {% endif%} 
         </tbody>
       </table>
+      <a class="btn btn-primary mx-1 rounded w-auto mx-auto" href="/insert-route"
+        >Insertar ruta <i class="bi bi-plus-circle-fill"></i></span
+      ></a>
     </div>
   </div>
 </section>

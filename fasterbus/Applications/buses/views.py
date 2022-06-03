@@ -14,7 +14,7 @@ def insert_bus(request):
         if form.is_valid():
             form.save()
             return redirect("all_buses")
-    return render(request, "buses/insert_bus.html", { 'form': form })
+    return render(request, "buses/form_bus.html", { 'form': form })
 
 def edit_bus(request, id):
     bus = Bus.objects.get( id = id )
@@ -25,7 +25,7 @@ def edit_bus(request, id):
         if form.is_valid():
             form.save()
             return redirect("all_buses")
-    return render(request, "buses/insert_bus.html", { 'form': form })
+    return render(request, "buses/form_bus.html", { 'form': form })
 
 def delete_bus(request, id):
     bus = Bus.objects.get( id = id )

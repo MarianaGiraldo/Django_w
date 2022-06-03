@@ -3,10 +3,10 @@
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}" />
 {% endblock %} {% block title %}Form Buses{% endblock %} {% block content %}
-<!-- Buses-->
+<!-- Routes-->
 <section class="page-section" id="services">
   <div class="container px-4 px-lg-5">
-    <h2 class="text-center mt-0">Buses</h2>
+    <h2 class="text-center mt-0">Rutas</h2>
     <hr class="divider" />
     <div class="row gx-4 gx-lg-5">
       <div class="form-body">
@@ -14,7 +14,7 @@
           <div class="form-holder mx-auto">
             <div class="form-content mx-auto w-50">
               <div class="form-items">
-                <h3>Bus:</h3>
+                <h3>Ruta:</h3>
                 <p>Completa los siguientes datos.</p>
                 <form
                   method="POST"
@@ -22,19 +22,9 @@
                   novalidate
                 >
                 {% csrf_token %}
-
-                {% comment %} {{ form.as_p }} {% endcomment %}
                   <div class="col-md-12 py-2">
-                    <label>Placa</label>
-                    {% comment %} <input
-                      class="form-control"
-                      type="text"
-                      name="plate"
-                      id="id_plate"
-                      placeholder="Placa"
-                      required
-                    /> {% endcomment %}
-                    {{ form.plate }}
+                    <label>Origen</label>
+                    {{ form.origin }}
                     <div class="valid-feedback">
                       El campo de placa es válido!
                     </div>
@@ -44,16 +34,8 @@
                   </div>
 
                   <div class="col-md-12 py-2">
-                    <label>Tipo</label>
-                    {% comment %} <input
-                      class="form-control"
-                      type="text"
-                      name="type"
-                      id="id_type"
-                      placeholder="Tipo"
-                      required
-                    /> {% endcomment %}
-                    {{ form.type }}
+                    <label>Destino</label>
+                    {{ form.destination }}
                     <div class="valid-feedback">
                       El campo de tipo es válido!
                     </div>
@@ -61,42 +43,7 @@
                       El campo de tipo no puede estar en blanco!
                     </div>
                   </div>
-
-                  <div class="col-md-12 py-2">
-                    <label>Capacidad</label>
-                    <input
-                      class="form-control"
-                      type="number"
-                      name="capacity"
-                      id="id_capacity"
-                      placeholder="Capacidad"
-                      required
-                    />
-                    <div class="valid-feedback">
-                      El campo de capacidad es válido!
-                    </div>
-                    <div class="invalid-feedback">
-                      El campo de capacidad no puede estar en blanco!
-                    </div>
-                  </div>
-
-                  <div class="col-md-12 py-2">
-                    <label>Company</label>
-                    <input
-                      class="form-control"
-                      type="text"
-                      name="company"
-                      id="id_company"
-                      placeholder="Empresa"
-                      required
-                    />
-                    <div class="valid-feedback">
-                      El campo de Empresa es válido!
-                    </div>
-                    <div class="invalid-feedback">
-                      El campo de Empresa no puede estar en blanco!
-                    </div>
-                  </div>
+                  
                   <br />
                   <div class="form-check">
                     <input

@@ -28,3 +28,8 @@ def edit_user(request, id):
             form.save()
             return redirect("all_users")
     return render(request, "passengers/register_form.html", {'form': form, 'title': title })
+
+def delete_user(request, id):
+    user = Passenger.objects.get( id = id )
+    user.delete()
+    return redirect("all_users")

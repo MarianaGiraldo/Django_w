@@ -17,41 +17,29 @@
       <h2>Comprar tiquete</h2>
       {% csrf_token %}
       <div class="row">
+        <div class="alert">{{ form.errors }}</div>
+        {% comment %} {{ form.as_p}} {% endcomment %}
         <div class="col-lg-3 col-md-3 col-3">
-          <select
+          {{ form.route_id }}
+          {% comment %} <select
             class="form-control py-0 px-2"
             aria-label="routes"
             name="route_id">
             <option selected disabled>Seleccione su Ruta</option>
             {% for route in form.route_id %}
-              <option value="{{route.id}}">{{route}} -> {{route.destination}}</option>
-            {% endfor %}
-          </select>
+              <option value="{{route}}">{{route.origin}} -> {{route.destination}}</option>
+            {% endfor %} 
+          </select> {% endcomment %}
         </div>
         <div class="col-lg-3 col-md-3 col-3">
-          <select
-            class="form-control py-0 px-2"
-            aria-label="buses"
-            name="bus_id">
-            <option selected disabled>Seleccione su Bus</option>
-            {% comment %} {% if buses != none %} {% for bus in buses %}
-              <option value="{{bus[0]}}">{{bus[1]}} - {{bus[2]}}</option>
-            {% endfor %} {% endif %} {% endcomment %}
-          </select>
+          {{ form.bus_id }}
         </div>
         <div class="col-lg-3 col-md-3 col-3">
-          <select
-            class="form-control py-0 px-2"
-            aria-label="users"
-            name="passenger_id">
-            <option selected disabled>Seleccione el pasajero</option>
-            {% comment %} {% if users != none %} {% for user in users %}
-              <option value="{{user[0]}}">{{user[1]}} - {{user[2]}}</option>
-            {% endfor %} {% endif %} {% endcomment %}
-          </select>
+          {{ form.passenger_id }}
         </div>
         <div class="col-lg-3 col-md-3 col-3">
-          <input
+          {{ form.travel_date }}
+          {% comment %} <input
             type="text"
             name="travel_date"
             id="travel_date"
@@ -60,10 +48,11 @@
             placeholder="Fecha de viaje"
             onfocus="(this.type='date')"
             onblur="(this.type='text')"
-          />
+          /> {% endcomment %}
         </div>
         <div class="col-lg-3 col-md-3 col-3">
-          <input
+          {{ form.departure_time }}
+          {% comment %} <input
             type="text"
             name="departure_time"
             id="departure_time"
@@ -71,11 +60,12 @@
             required=""
             placeholder="Hora de salida"
             onfocus="(this.type='time')"
-          />
+          /> {% endcomment %}
         </div>
 
         <div class="col-lg-3 col-md-3 col-3">
-          <input
+          {{ form.quantity }}
+          {% comment %} <input
             type="number"
             name="quantity"
             id="quantity"
@@ -83,10 +73,10 @@
             placeholder="Cantidad"
             required=""
             min=1
-          />
+          /> {% endcomment %}
         </div>
-
-        <div class="col-lg-3 col-md-3 col-3 pb-1">
+        
+        <div class="col-lg-3 col-md-3 col-3 pb-1 float-end position-static" >
           <button type="submit" class="form-control pt-2">Comprar</button>
         </div>
       </div>
