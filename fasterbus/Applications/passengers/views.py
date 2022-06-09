@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Passenger
 from .forms import PassengerForm
+import matplotlib.pyplot as plt
+import pandas as pd
 
 def all_users(request):
     users = Passenger.objects.all()
@@ -32,4 +34,17 @@ def edit_user(request, id):
 def delete_user(request, id):
     user = Passenger.objects.get( id = id )
     user.delete()
+    return redirect("all_users")
+
+
+def graph_users(request):
+    users = Passenger.objects.values()
+    print(users)
+    dataframe = pd.DataFrame(users)
+    id = dataframe.id
+    fullname = dataframe.full_name
+    print (id, fullname)
+    plt.bar(fullname, id)
+    # plt.pie(id)
+    plt.show()
     return redirect("all_users")

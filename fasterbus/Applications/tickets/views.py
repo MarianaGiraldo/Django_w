@@ -4,6 +4,8 @@ from Applications.routes.models import Route
 from Applications.buses.models import Bus
 from .models import Ticket
 from .forms import TicketForm
+import matplotlib.pyplot as plt
+import pandas as pd
 
 def all_tickets(request):
     tickets = Ticket.objects.all()
@@ -50,4 +52,18 @@ def edit_ticket(request, id):
 def delete_ticket(request, id):
     ticket = Ticket.objects.get( id = id )
     ticket.delete()
+    return redirect("all_tickets")
+
+def graph_tickets(request):
+    tickets = Ticket.objects.values()
+    print(tickets)
+    dataframe = pd.DataFrame(tickets)
+    quantity = dataframe.quantity
+    passenger = dataframe.passenger_id
+    print (quantity, passenger)
+    plt.bar(passenger, quantity)
+    plt.xlabel("Pasajero id")
+    plt.ylabel("Cantidad de Tiquetes")
+    # plt.pie(quantity)
+    plt.show()
     return redirect("all_tickets")
