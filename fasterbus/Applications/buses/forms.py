@@ -8,7 +8,8 @@ class BusForm( forms.ModelForm ):
         widgets = {
             'plate': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'Placa'
+                'placeholder': 'Placa',
+                'pattern': '[A-Z]{3}-[0-9]{3}'
                 }),
             'type': forms.TextInput(attrs={
                 'class': "form-control",
