@@ -23,21 +23,21 @@
           </tr>
         </thead>
         <tbody>
-          {% comment %} {% if tickets != none %} {% for ticket in tickets %}
+          {% if tickets != none %} {% for ticket in tickets %}
           <tr>
-            <td>{{ticket[0]}}</td>
-            <td>{{ticket[1]}} -> {{ticket[2]}}</td>
-            <td>{{ticket[3]}} / {{ticket[4]}}</td>
-            <td>{{ticket[5]}} - {{ticket[6]}}</td>
-            <td>{{ticket[7]}}</td>
-            <td>{{ticket[8]}}</td>
-            <td>{{ticket[9]}}</td>
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.route}}</td>
+            <td>{{ticket.bus}}</td>
+            <td>{{ticket.passenger}}</td>
+            <td>{{ticket.quantity}}</td>
+            <td>{{ticket.travel_date}}</td>
+            <td>{{ticket.departure_time}}</td>
             <td>
               <div class="row p-0">
                 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
                 <a
                   class="btn btn-success col mx-1"
-                  href="/tickets/edit/{{ticket[0]}}"
+                  href="/tickets/edit/{{ticket.id}}"
                   ><span
                     class="iconify fs-20"
                     data-icon="clarity:pencil-solid"
@@ -45,13 +45,13 @@
                 ></a>
                 <a
                   class="btn btn-danger col mx-1"
-                  href="/tickets/delete/{{ticket[0]}}"
+                  href="/tickets/delete/{{ticket.id}}"
                   ><span class="iconify fs-20" data-icon="bi:trash-fill"></span
                 ></a>
               </div>
             </td>
           </tr>
-          {% endfor%} {% endif%} {% endcomment %}
+          {% endfor%} {% endif%}
         </tbody>
       </table>
       <a class="btn btn-primary mx-1 rounded w-auto mx-auto" href="/buy-tickets"

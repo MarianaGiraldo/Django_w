@@ -18,62 +18,24 @@
       {% csrf_token %}
       <div class="row">
         <div class="alert">{{ form.errors }}</div>
-        {% comment %} {{ form.as_p}} {% endcomment %}
         <div class="col-lg-3 col-md-3 col-3">
-          {{ form.route_id }}
-          {% comment %} <select
-            class="form-control py-0 px-2"
-            aria-label="routes"
-            name="route_id">
-            <option selected disabled>Seleccione su Ruta</option>
-            {% for route in form.route_id %}
-              <option value="{{route}}">{{route.origin}} -> {{route.destination}}</option>
-            {% endfor %} 
-          </select> {% endcomment %}
+          {{ form.route }} 
         </div>
         <div class="col-lg-3 col-md-3 col-3">
-          {{ form.bus_id }}
+           {{ form.bus }}
         </div>
-        <div class="col-lg-3 col-md-3 col-3">
-          {{ form.passenger_id }}
+        <div class="col-lg-3 col-md-3 col-3"> 
+           {{ form.passenger }}
         </div>
         <div class="col-lg-3 col-md-3 col-3">
           {{ form.travel_date }}
-          {% comment %} <input
-            type="text"
-            name="travel_date"
-            id="travel_date"
-            class="form-control"
-            required=""
-            placeholder="Fecha de viaje"
-            onfocus="(this.type='date')"
-            onblur="(this.type='text')"
-          /> {% endcomment %}
         </div>
         <div class="col-lg-3 col-md-3 col-3">
           {{ form.departure_time }}
-          {% comment %} <input
-            type="text"
-            name="departure_time"
-            id="departure_time"
-            class="form-control"
-            required=""
-            placeholder="Hora de salida"
-            onfocus="(this.type='time')"
-          /> {% endcomment %}
         </div>
 
         <div class="col-lg-3 col-md-3 col-3">
           {{ form.quantity }}
-          {% comment %} <input
-            type="number"
-            name="quantity"
-            id="quantity"
-            class="form-control"
-            placeholder="Cantidad"
-            required=""
-            min=1
-          /> {% endcomment %}
         </div>
         
         <div class="col-lg-3 col-md-3 col-3 pb-1 float-end position-static" >

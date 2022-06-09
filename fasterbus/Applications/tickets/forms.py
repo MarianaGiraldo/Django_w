@@ -1,20 +1,23 @@
 from django import forms
 from .models import Ticket
+from Applications.routes.models import Route
+from Applications.passengers.models import Passenger
+from Applications.buses.models import Bus
 
 class TicketForm( forms.ModelForm ):
     class Meta:
         model = Ticket
         fields = '__all__'
         widgets = {
-            'route_id': forms.Select(attrs={
+            'route': forms.Select(attrs={
                 'class': "form-control py-0 px-2",
                 'placeholder': 'Seleccione su ruta'
                 }),
-            'bus_id': forms.Select(attrs={
+            'bus': forms.Select(attrs={
                 'class': "form-control py-0 px-2",
                 'placeholder': 'Seleccione el bus'
                 }),
-            'passenger_id': forms.Select(attrs={
+            'passenger': forms.Select(attrs={
                 'class': "form-control py-0 px-2",
                 'placeholder': 'Seleccione el usuario'
                 }),
